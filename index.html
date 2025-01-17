@@ -9,199 +9,155 @@
       font-family: Arial, Helvetica, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
+      background-image: url('app/static/assets/background_website.png'); 
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat; 
       color: #333;
       font-size: 16px;
-    }
-
-    header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      flex-direction: column;
+      min-height: 100vh;
     }
 
-    header h1 {
-      font-size: 1.5rem;
-      margin: 0;
-      flex-shrink: 0;
+    html {
+      scroll-behavior: smooth; 
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 20px;
     }
 
     nav ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      gap: 20px;
       display: flex;
-    }
-
-    nav ul li {
-      display: inline;
+      gap: 20px;
     }
 
     nav ul li a {
       text-decoration: none;
-      color: #333;
+      color: #007BFF;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #0056b3;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: #007BFF;
+    }
+
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #fff;
+      position: absolute;
+      top: 50px;
+      right: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      padding: 10px 20px;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #007BFF;
       font-size: 1rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .menu a:last-child {
+      border-bottom: none;
+    }
+
+    .menu a:hover {
+      color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .menu {
+        display: flex;
+      }
+
+      .menu.hidden {
+        display: none;
+      }
     }
 
     main {
+      flex: 1;
       text-align: center;
       padding: 20px;
     }
 
-    section {
-      margin: 200px 0;
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 0 auto;
-      max-width: 800px;
-      padding: 0 20px;
-    }
-
-    .gallery {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .gallery a {
-      position: relative;
-      display: inline-block;
-      text-decoration: none;
-    }
-
-    .gallery img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-
-    .tooltip {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      border-radius: 5px;
-      text-align: center;
-      padding: 10px;
-    }
-
-    .gallery a:hover .tooltip {
-      opacity: 1;
-    }
-
-    .tooltip h3 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-      color: #ffd700;
-    }
-
-    .tooltip p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
-    .projects-wrapper {
-      background-color: #f0f8ff;
-      padding: 40px 0;
-      border-radius: 10px;
-    }
-
-    .social-icons {
-      position: fixed;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .social-icons a {
-      text-decoration: none;
-      font-size: 1.5rem;
-      color: #333;
-      transition: color 0.3s ease;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     #queensU {
       text-align: left;
-      padding: 100px; 
-      margin: 0;
+      padding: 100px;
+      margin: 0 auto;
       max-width: 800px;
-    }
-
-    #queensU h1 {
-      margin-bottom: 1px; 
-    }
-
-    .typewriter-container {
-      margin-bottom: 20px; 
-    }
-
-    #queensU p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 0; 
-      padding-left: 0
     }
 
     .queensU-container {
       display: flex;
-      align-items: center; 
-      gap: 50px; 
+      align-items: center;
+      gap: 50px;
     }
 
     #queensU .content {
-      flex: 1; 
+      flex: 1;
       max-width: 600px;
     }
 
-    #queensU .headshot {
-      width: 300px; 
-      height: 400px; 
-      border-radius: 50%; 
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      object-fit: cover; 
+    #hi-im-sareena {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
 
-    @media (min-width: 1024px) {
-      #queensU {
-        padding-left: 400px; 
-      }
-    }
-
-    .typewriter-container {
-      margin-top: 5px;
-      font-size: 1.2rem;
-      color: #333;
+    #contact {
+      padding: 50px 20px;
+      margin-top: 100px;
+      background-color: #f9f9f9;
+      text-align: center;
     }
 
     form {
@@ -224,7 +180,7 @@
     }
 
     button {
-      background-color: #333;
+      background-color: #007BFF;
       color: #fff;
       cursor: pointer;
       border: none;
@@ -232,49 +188,176 @@
     }
 
     button:hover {
-      background-color: #555;
+      background-color: #0056b3;
+    }
+
+    .typewriter-container {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    #queensU p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 20px 0;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 1s 2s forwards;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      display: inline-block;
+      color: #333;
+    }
+
+    .social-links img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .projects-wrapper {
+      background-color: #f0f8ff;
+      padding: 40px 0;
+      border-radius: 10px;
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 0 auto;
+    }
+
+    .gallery a {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateX(-50px);
+      overflow: hidden;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery a:hover .tooltip {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .projects-link {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #007BFF;
+      text-decoration: none;
+      transition: color 0.3s;
+      opacity: 0;
+      animation: fadeIn 1s 2.5s forwards;
+    }
+
+    .projects-link:hover {
+      color: #0056b3;
+    }
+
+    #queensU .headshot {
+      width: 300px;
+      height: 400px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      background-color: #f8f8f8;
+      border-top: 1px solid #ddd;
+      margin-top: auto;
     }
 
     @media (max-width: 768px) {
-      .gallery img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
+      .queensU-container {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .social-icons img {
-        left: 5px;
+      #queensU .headshot {
+        max-width: 80%;
+        height: auto;
       }
     }
   </style>
 </head>
 <body>
-  <div class="social-icons">
-    <a href="https://github.com/sareenashrestha" target="_blank" class="github">
-      <img src="app/static/assets/github.jpg" alt="GitHub" style="width: 24px; height: 24px;">
-    </a>
-    <a href="https://www.linkedin.com/in/sareena-shrestha-37959a21b/" target="_blank">
-      <img src="app/static/assets/linkedin.jpg" alt="Linkedin" style="width: 24px; height: 24px;">
-    </a>
-  </div>
-
-  <header>
-    <h1>Sareena Shrestha</h1>
-    <nav>
-      <ul>
-        <li><a href="#portfolio">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="app/static/assets/Sareenas_Resume.pdf" target="_blank">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="app/static/assets/Sareenas_Resume.pdf" target="_blank">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="menu hidden">
+      <a href="#projects">Projects</a>
+      <a href="app/static/assets/Sareenas_Resume.pdf" target="_blank">Resume</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
   <main>
     <section id="queensU">
       <div class="queensU-container">
         <div class="content">
-          <h1>Hi, I'm Sareena!</h1>
+          <h1 id="hi-im-sareena">Hi, I'm Sareena!</h1>
           <div class="typewriter-container">
             <span id="typewriter"></span>
           </div>
@@ -284,45 +367,51 @@
           <p>
             I’m also drawn to business-focused roles, especially those that bring together technology and management. Whether it’s designing user-friendly interfaces, improving back-end systems, or figuring out how technology can help businesses grow, I’m excited by the chance to make a difference. I enjoy tackling challenges, working with others, and learning new skills and tools to keep improving.
           </p>
+          <div class="social-links">
+            <a href="https://github.com/sareenashrestha" target="_blank">
+              <img src="app/static/assets/github.jpg" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/sareena-shrestha-37959a21b/" target="_blank">
+              <img src="app/static/assets/linkedin.jpg" alt="LinkedIn">
+            </a>
+          </div>        
         </div>
         <img src="app/static/assets/Sareenas-Headshot.jpg" alt="Sareena's Headshot" class="headshot">
       </div>
     </section>
 
-    <div class="projects-wrapper">
-      <section id="portfolio">
-        <h2>Projects</h2>
-        <div class="gallery">
-          <a href="https://github.com/sareenashrestha" target="_blank">
-            <img src="app/static/assets/personalWebsite.jpg" alt="Portfolio Website">
-            <div class="tooltip">
-              <h3>Portfolio Website</h3>
-              <p>
-                I developed this fully responsive website to showcase my skills, projects, and experience. This website was built using HTML, CSS, and JavaScript, as well as a Node.js backend with Express.js to handle user submission through a secure contact form.
-              </p>
-            </div>
-          </a>
-          <a href="https://github.com/sareenashrestha/CISC327-Group4-FS" target="_blank">
-            <img src="app/static/assets/plane.jpg" alt="Flight Booking System">
-            <div class="tooltip">
-              <h3>Flight Booking System</h3>
-              <p>
-                This flight booking system was done in a team, with the goal of designing and implementing key features of a flight booking platform. The functionality for user authentication, registration, booking management, and cancellations were developed and designed using Flask, HTML, CSS, JavaScript, SQLite, Selenium, unittest, and Werkzeug.
-              </p>
-            </div>
-          </a>
-          <a href="https://github.com/sareenashrestha/COMPSA-2024-Scavenger-Hunt" target="_blank">
-            <img src="app/static/assets/Compsa-Logo.jpg" alt="Scavenger Hunt">
-            <div class="tooltip">
-              <h3>Scavenger Hunt</h3>
-              <p>
-                This interactive scavenger hunt is built using HTML, CSS, and JavaScript, and it's hosted on GitHub Pages. Players answer questions and follow clues to different locations. At each location, they upload a picture to prove they’ve been there before moving on to the next clue.
-              </p>
-            </div>
-          </a>
-        </div>
-      </section>
-    </div>
+    <section id="projects" class="projects-wrapper">
+      <h2>My Projects</h2>
+      <div class="gallery">
+        <a href="https://github.com/sareenashrestha" target="_blank">
+          <img src="app/static/assets/personalWebsite.jpg" alt="Portfolio Website">
+          <div class="tooltip">
+            <h3>Portfolio Website</h3>
+            <p>
+              A fully responsive website showcasing my skills, projects, and experience. Built using HTML, CSS, JavaScript, and Node.js.
+            </p>
+          </div>
+        </a>
+        <a href="https://github.com/sareenashrestha/CISC327-Group4-FS" target="_blank">
+          <img src="app/static/assets/plane.jpg" alt="Flight Booking System">
+          <div class="tooltip">
+            <h3>Flight Booking System</h3>
+            <p>
+              Designed and implemented key features of a flight booking platform using Flask, HTML, CSS, JavaScript, SQLite, Selenium, and more.
+            </p>
+          </div>
+        </a>
+        <a href="https://github.com/sareenashrestha/COMPSA-2024-Scavenger-Hunt" target="_blank">
+          <img src="app/static/assets/Compsa-Logo.jpg" alt="Scavenger Hunt">
+          <div class="tooltip">
+            <h3>Scavenger Hunt</h3>
+            <p>
+              An interactive scavenger hunt built with HTML, CSS, and JavaScript, hosted on GitHub Pages.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <section id="contact">
       <h2>Get In Touch With Me!</h2>
@@ -341,28 +430,11 @@
     </section>
   </main>
 
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <footer>
+    ©2025 Sareena Shrestha. All Rights Reserved.
+  </footer>
+
   <script>
-    (function () {
-      emailjs.init("8aUjkxBgpZw5SR8Qf"); 
-    })();
-
-    document.getElementById('contact-form').addEventListener('submit', function (event) {
-      event.preventDefault();
-
-      const serviceID = 'service_xlupb6s'; 
-      const templateID = 'template_8l7decs'; 
-
-      emailjs.sendForm(serviceID, templateID, this)
-        .then(() => {
-          alert('Your message has been sent successfully!');
-          this.reset();
-        }, (error) => {
-          alert('Failed to send message. Please try again later.');
-          console.error('EmailJS Error:', error);
-        });
-    });
-
     const words = ["Software Developer", "Web Designer"];
     let wordIndex = 0;
     let charIndex = 0;
@@ -394,10 +466,30 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       typeEffect();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+            entry.target.style.opacity = '1';
+          } else {
+            entry.target.style.animationPlayState = 'paused';
+            entry.target.style.opacity = '0';
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      document.querySelectorAll('.gallery a, #hi-im-sareena, #queensU p, .social-links').forEach((element) => {
+        observer.observe(element);
+      });
     });
+
+    function toggleMenu() {
+      const menu = document.querySelector(".menu");
+      menu.classList.toggle("hidden");
+    }
   </script>
-<footer>
-  ©2025 Sareena Shrestha. All Rights Reserved.
-</footer>
 </body>
 </html>
